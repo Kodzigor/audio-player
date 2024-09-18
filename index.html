@@ -9,7 +9,56 @@
 </head>
 
 <body>
-  <script src="./main.js"></script>
+  <div class="root">
+    <h1>Music player</h1>
+
+    <main class="app">
+      <div class="app__cover"></div>
+      <div class="app__content">
+        <div class="app__heading">
+          <img src="./assets/images/beat1.jpg" alt="">
+
+          <div class="app__volume">
+            <input type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
+            <svg class="icon">
+              <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
+            </svg>
+            <svg class="icon">
+              <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
+            </svg>
+          </div>
+
+          <div class="app__info">
+            <div class="song__title">Song name</div>
+            <div class="song__author">Song author</div>
+          </div>
+
+        </div>
+
+        <div class="app__progress">
+          <input type="range" name="progress" id="">
+        </div>
+        <div class="app__controls">
+          <svg class="icon">
+            <use xlink:href="./assets/icons/sprite.svg#backward-solid"></use>
+          </svg>
+          <svg class="icon">
+            <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+          </svg>
+          <svg class="icon">
+            <use xlink:href="./assets/icons/sprite.svg#stop-solid"></use>
+          </svg>
+          <svg class="icon">
+            <use xlink:href="./assets/icons/sprite.svg#forward-solid"></use>
+          </svg>
+
+        </div>
+
+
+      </div>
+    </main>
+  </div>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
