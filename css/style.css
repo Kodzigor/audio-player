@@ -1,0 +1,125 @@
+.root {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: lightgray;
+}
+
+.app {
+  width: 25%;
+  min-width: 250px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.app__image {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 20px 20px 0 0;
+  margin-bottom: 20px;
+}
+.app__song {
+  text-align: center;
+}
+.app__song-title {
+  color: rgb(46, 50, 113);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 1px;
+}
+.app__song-author {
+  color: rgba(124, 141, 181, 0.72);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0px;
+}
+.app__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 10px;
+  gap: 10px;
+}
+.app__icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  -webkit-transition: all 0.3;
+  transition: all 0.3;
+}
+.app__icon :hover {
+  fill: #000;
+  opacity: 0.7;
+}
+.app__icon-small {
+  width: 18px;
+  height: 18px;
+}
+.app__icon-big {
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+.app__progress {
+  width: 100%;
+}
+.app__progress input {
+  width: 100%;
+  margin: auto;
+}
+.app__progress-time {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+.app__volume {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.app__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 10px 5px;
+}/*# sourceMappingURL=style.css.map */

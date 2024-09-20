@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -13,45 +17,54 @@
     <h1>Music player</h1>
 
     <main class="app">
-      <div class="app__cover"></div>
+
       <div class="app__content">
         <div class="app__heading">
-          <img src="./assets/images/beat1.jpg" alt="">
-
-          <div class="app__volume">
-            <input type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
-            <svg class="icon">
-              <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
-            </svg>
-            <svg class="icon">
-              <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
-            </svg>
-          </div>
+          <img class="app__image" src="./assets/images/beat1.jpg" alt="">
 
           <div class="app__info">
-            <div class="song__title">Song name</div>
-            <div class="song__author">Song author</div>
+            <div class="app__song">
+              <h2 class="app__song-title">Song name</h2>
+              <h3 class="app__song-author">Song author</h3>
+            </div>
+
+            <div class="app__progress">
+              <input type="range" name="progress" id="">
+              <div class="app__progress-time">
+                <div class="app__progress-time__full">00:00</div>
+                <div class="app__progress-time__passed">00:00</div>
+              </div>
+            </div>
+
+            <div class="app__controls">
+              <div class="app__volume">
+                <input class="app__volume-control" type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
+
+                <svg class="app__icon app__icon-small volume">
+                  <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
+                </svg>
+                <svg class="app__icon app__icon-small muted hidden">
+                  <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
+                </svg>
+              </div>
+
+              <div class="app__buttons">
+                <svg class="app__icon prev">
+                  <use xlink:href="./assets/icons/sprite.svg#backward-solid"></use>
+                </svg>
+                <svg class="app__icon app__icon-big play">
+                  <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+                </svg>
+                <svg class="app__icon app__icon-big stop hidden">
+                  <use xlink:href="./assets/icons/sprite.svg#stop-solid"></use>
+                </svg>
+                <svg class="app__icon next">
+                  <use xlink:href="./assets/icons/sprite.svg#forward-solid"></use>
+                </svg>
+              </div>
+
+            </div>
           </div>
-
-        </div>
-
-        <div class="app__progress">
-          <input type="range" name="progress" id="">
-        </div>
-        <div class="app__controls">
-          <svg class="icon">
-            <use xlink:href="./assets/icons/sprite.svg#backward-solid"></use>
-          </svg>
-          <svg class="icon">
-            <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
-          </svg>
-          <svg class="icon">
-            <use xlink:href="./assets/icons/sprite.svg#stop-solid"></use>
-          </svg>
-          <svg class="icon">
-            <use xlink:href="./assets/icons/sprite.svg#forward-solid"></use>
-          </svg>
-
         </div>
 
 
