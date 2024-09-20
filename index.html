@@ -25,7 +25,9 @@
           <div class="app__info">
             <div class="app__song">
               <h2 class="app__song-title">Song name</h2>
-              <h3 class="app__song-author">Song author</h3>
+              <span class="app__song-author">Song author</span>
+              <span>-</span>
+              <span class="app__song-genre">rock</span>
             </div>
 
             <div class="app__progress">
@@ -36,16 +38,24 @@
               </div>
             </div>
 
-            <div class="app__controls">
+            <div>
               <div class="app__volume">
                 <input class="app__volume-control" type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
 
-                <svg class="app__icon app__icon-small volume">
-                  <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
-                </svg>
-                <svg class="app__icon app__icon-small muted hidden">
-                  <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
-                </svg>
+                <div class="app__controls">
+                  <svg class="app__icon app__icon-small volume">
+                    <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
+                  </svg>
+                  <svg class="app__icon app__icon-small muted hidden">
+                    <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
+                  </svg>
+                  <svg class="app__icon app__icon-small repeat">
+                    <use xlink:href="./assets/icons/sprite.svg#repeat-solid"></use>
+                  </svg>
+                  <svg class="app__icon app__icon-small shuffle">
+                    <use xlink:href="./assets/icons/sprite.svg#shuffle-solid"></use>
+                  </svg>
+                </div>
               </div>
 
               <div class="app__buttons">
@@ -71,7 +81,7 @@
       </div>
     </main>
   </div>
-  <script src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
 </body>
 
 </html>

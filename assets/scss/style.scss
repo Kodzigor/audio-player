@@ -33,15 +33,24 @@
       font-weight: 600;
       line-height: 21px;
       letter-spacing: 1px;
+      margin-bottom: 5px;
     }
 
-    &-author {
+    &-author,
+    &-genre {
       color: rgba(124, 141, 181, 0.72);
       font-size: 15px;
       font-weight: 400;
       line-height: 14px;
       letter-spacing: 0px;
     }
+  }
+
+  &__controls {
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    margin-left: 10px;
   }
 
   &__info {
@@ -55,10 +64,10 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    transition: all 0.3;
+    transition: all 0.2s ease-in;
 
-    :hover {
-      fill: #000;
+    &:hover {
+      // fill: #000;
       opacity: 0.7;
     }
 

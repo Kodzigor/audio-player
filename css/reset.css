@@ -148,6 +148,10 @@ input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
+h1 {
+  display: none;
+}
+
 .hidden {
   display: none;
 }/*# sourceMappingURL=reset.css.map */
