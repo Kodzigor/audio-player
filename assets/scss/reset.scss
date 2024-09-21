@@ -110,6 +110,8 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1;
   color: black;
+  color: rgb(46, 50, 113);
+  background-color: lightgray;
 }
 
 ol,
@@ -153,4 +155,8 @@ h1 {
 
 .hidden {
   display: none;
+}
+
+.active {
+  fill: red;
 }

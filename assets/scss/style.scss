@@ -4,23 +4,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightgray;
+  align-items: center;
 }
 
 .app {
-  max-width: 50%;
-  min-width: 650px;
-  max-height: 450px;
+  min-width: 50%;
+  max-width: 700px;
+  max-height: 500px;
   margin: auto;
   background-color: white;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
-  padding: 20px 0;
+  justify-content: space-between;
+  align-items: flex-start;
 
   &__content {
-    width: 65%;
+    width: 60%;
     height: fit-content;
+    padding: 20px 0;
   }
 
   &__image {
@@ -30,53 +31,72 @@
     border-radius: 20px;
     margin: auto;
     margin-bottom: 20px;
-    // margin-bottom: 20px;
   }
 
-  &__song {
-    text-align: center;
+  &__info {
+    width: 90%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &-title {
-      color: rgb(46, 50, 113);
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 21px;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
+    & .song {
+      &__title {
+        color: rgb(46, 50, 113);
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+
+      &__author {
+        color: rgba(124, 141, 181, 0.72);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0px;
+      }
     }
 
-    &-author,
-    &-genre {
-      color: rgba(124, 141, 181, 0.72);
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 14px;
-      letter-spacing: 0px;
+    & .volume {
+      width: 30%;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      &__icon {
+        &:hover {
+          .app__volume-level {
+            display: block;
+          }
+        }
+      }
+
+      &__level {
+        width: 100%;
+      }
     }
   }
 
   &__controls {
     display: flex;
-    width: 25%;
-    justify-content: space-between;
-    margin-left: 10px;
-  }
-
-  &__info {
-    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0 10px;
     gap: 10px;
   }
 
   &__icon {
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     transition: all 0.2s ease-in;
 
     &:hover {
-      // fill: #000;
       opacity: 0.7;
     }
 
@@ -86,14 +106,32 @@
     }
 
     &-big {
-      width: 45px;
-      height: 45px;
+      width: 60px;
+      height: 60px;
       position: relative;
     }
   }
 
+  &__buttons {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
+    position: sticky;
+
+    // &.fixed {
+    //   position: fixed;
+    //   width: 50%;
+    //   z-index: 100;
+    //   top: 0;
+    //   left: 25%;
+    //   background: rgb(211, 211, 211, 1);
+    // }
+  }
+
   &__progress {
-    width: 100%;
+    width: 90%;
 
     input {
       width: 100%;
@@ -108,39 +146,60 @@
     }
   }
 
-  &__volume {
-    display: flex;
-    align-items: center;
-  }
-
-  &__buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 10px 5px;
-  }
-
   &__tracks {
+    width: 35%;
+    height: 90%;
     background: rgb(211, 211, 211, 0.3);
-    padding: 10px 15px;
+    // padding: 5px;
+    margin: 20px 20px 20px 0;
     border-radius: 9px;
-    max-height: 100%;
     overflow-y: scroll;
   }
 
   &__track {
     display: flex;
+    width: 95%;
+    height: fit-content;
     justify-content: space-between;
+    align-items: center;
     padding: 5px;
-    gap: 5px;
     margin-bottom: 5px;
     cursor: pointer;
-    color: rgb(0, 0, 0, 0.6);
+    // color: rgb(0, 0, 0, 0.6);
     transition: all 0.2s ease-in;
 
     &:hover {
       background: rgb(211, 211, 211, 0.5);
       border-radius: 5px;
+    }
+
+    & .track {
+      &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        font-size: 11px;
+      }
+      &__image {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+      }
+
+      &__heading {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+      }
+
+      &__title {
+        font-size: 14px;
+      }
+
+      &__author {
+        color: rgba(124, 141, 181, 0.72);
+      }
     }
   }
 }

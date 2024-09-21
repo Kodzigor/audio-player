@@ -19,16 +19,64 @@
     <main class="app">
 
       <div class="app__content">
-        <div class="app__heading">
-          <img class="app__image" src="./assets/images/beat1.jpg" alt="">
-        </div>
 
-        <div class="app__info">
-          <div class="app__song">
-            <h2 class="app__song-title">Song name</h2>
-            <span class="app__song-author">Song author</span>
-            <span>-</span>
-            <span class="app__song-genre">rock</span>
+        <img class="app__image" src="./assets/images/beat1.jpg" alt="">
+
+        <div class="app__controls">
+
+          <div class="app__info">
+
+            <div class="song">
+              <h2 class="song__title">Song name</h2>
+              <h3 class="song__author">Song author</h3>
+            </div>
+
+            <div class="volume">
+
+              <div class="volume__icon">
+                <svg class="app__icon app__icon-small icon-volume ">
+                  <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
+                </svg>
+                <svg class="app__icon app__icon-small muted hidden">
+                  <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
+                </svg>
+              </div>
+
+              <input class="volume__level" type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
+
+
+            </div>
+          </div>
+
+          <div class="app__buttons fixed">
+
+            <svg class="app__icon shuffle">
+              <use xlink:href="./assets/icons/sprite.svg#shuffle-solid"></use>
+            </svg>
+
+            <svg class="app__icon prev">
+              <use xlink:href="./assets/icons/sprite.svg#backward-solid"></use>
+            </svg>
+            <!-- <svg class="app__icon app__icon-big play">
+                          <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+                        </svg> -->
+            <svg class="app__icon app__icon-big play">
+              <use xlink:href="./assets/icons/sprite.svg#circle-play-solid"></use>
+            </svg>
+            <svg class="app__icon app__icon-big play hidden">
+              <use xlink:href="./assets/icons/sprite.svg#circle-pause-solid"></use>
+            </svg>
+            <!-- <svg class="app__icon app__icon-big stop ">
+                          <use xlink:href="./assets/icons/sprite.svg#circle-stop-solid"></use>
+                        </svg> -->
+            <svg class="app__icon next">
+              <use xlink:href="./assets/icons/sprite.svg#forward-solid"></use>
+            </svg>
+
+            <svg class="app__icon  repeat">
+              <use xlink:href="./assets/icons/sprite.svg#repeat-solid"></use>
+            </svg>
+
           </div>
 
           <div class="app__progress">
@@ -39,78 +87,351 @@
             </div>
           </div>
 
-          <div>
-            <div class="app__volume">
-              <input class="app__volume-control" type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
-
-              <div class="app__controls">
-                <svg class="app__icon app__icon-small volume">
-                  <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
-                </svg>
-                <svg class="app__icon app__icon-small muted hidden">
-                  <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
-                </svg>
-                <svg class="app__icon app__icon-small repeat">
-                  <use xlink:href="./assets/icons/sprite.svg#repeat-solid"></use>
-                </svg>
-                <svg class="app__icon app__icon-small shuffle">
-                  <use xlink:href="./assets/icons/sprite.svg#shuffle-solid"></use>
-                </svg>
-              </div>
-            </div>
-
-            <div class="app__buttons">
-              <svg class="app__icon prev">
-                <use xlink:href="./assets/icons/sprite.svg#backward-solid"></use>
-              </svg>
-              <svg class="app__icon app__icon-big play">
-                <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
-              </svg>
-              <svg class="app__icon app__icon-big stop hidden">
-                <use xlink:href="./assets/icons/sprite.svg#stop-solid"></use>
-              </svg>
-              <svg class="app__icon next">
-                <use xlink:href="./assets/icons/sprite.svg#forward-solid"></use>
-              </svg>
-            </div>
-
-          </div>
         </div>
 
       </div>
 
       <ul class="app__tracks">
-        <li class="app__track">
-          <span class="app__track-name">Song name</span>
-          <span>-</span>
-          <span class="app__track-author">Song Author</span>
-        </li>
-        <li class="app__track">
-          <span class="app__track-name">Song name</span>
-          <span>-</span>
-          <span class="app__track-author">Song Author</span>
-        </li>
-        <li class="app__track">
-          <span class="app__track-name">Song name</span>
-          <span>-</span>
-          <span class="app__track-author">Song Author</span>
-        </li>
-        <li class="app__track">
-          <span class="app__track-name">Song name</span>
-          <span>-</span>
-          <span class="app__track-author">Song Author</span>
-        </li>
-        <li class="app__track">
-          <span class="app__track-name">Song name</span>
-          <span>-</span>
-          <span class="app__track-author">Song Author</span>
-        </li>
-        <li class="app__track">
-          <span class="app__track-name">Song name</span>
-          <span>-</span>
-          <span class="app__track-author">Song Author</span>
-        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
 
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
+        <li class="app__track track">
+          <div class="track__info">
+            <img class="track__image" src="./assets/images/beat1.jpg">
+            <div class="track__heading">
+              <span class="track__title">Song name</span>
+              <span class="track__author">Song Author</span>
+            </div>
+
+            <div class="track__duration">01:00</div>
+            <div class="track__genre">Rock</div>
+            <svg class="app__icon app__icon-small play">
+              <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
+            </svg>
+          </div>
+
+
+        </li>
 
       </ul>
     </main>
