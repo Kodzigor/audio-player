@@ -4,7 +4,7 @@ import { handleTime } from './utils.js';
 const AudioController = {
   state: {
     audios: [],
-    current: data[0],
+    current: '',
     playing: false,
   },
 
@@ -12,17 +12,21 @@ const AudioController = {
     this.initVariables();
     this.initEvents();
     this.renderAudios();
-    this.renderCurrentItem(this.state.current);
   },
 
   initVariables() {
     this.audioList = document.querySelector('.app__tracks');
     this.audioList.innerHTML = '';
-    this.playButton = null;
+    this.play = document.querySelector('.app__play');
+    this.next = document.querySelector('.next');
+    this.prev = document.querySelector('.prev');
   },
 
   initEvents() {
     this.audioList.addEventListener('click', this.handleCurrentItem.bind(this));
+    this.play.addEventListener('click', this.handleAudioPlay.bind(this));
+    this.next.addEventListener('click', this.handleNext.bind(this));
+    this.prev.addEventListener('click', this.handlePrev.bind(this));
   },
 
   handleAudioPlay() {
@@ -32,15 +36,36 @@ const AudioController = {
     !playing ? audio.play() : audio.pause();
 
     this.state.playing = !playing;
-    this.playButton.classList.toggle('playing', !playing);
+    this.play.classList.toggle('playing', !playing);
   },
 
-  handlePlayer() {
-    const play = document.querySelector('.app__play');
-    this.playButton = play;
+  handleNext() {
+    const { current } = this.state;
+    const currentEl = document.querySelector(`[data-id="${current.id}"]`);
+    const next = currentEl.nextElementSibling?.dataset;
+    const first = this.audioList.firstElementChild?.dataset;
 
-    play.addEventListener('click', this.handleAudioPlay.bind(this));
+    const itemId = next?.id || first?.id;
+
+    if (!itemId) return;
+    this.setCurrentItem(itemId);
   },
+
+  handlePrev() {
+    const { current } = this.state;
+    const currentEl = document.querySelector(`[data-id="${current.id}"]`);
+    const prev = currentEl.previousElementSibling?.dataset;
+    const last = this.audioList.lastElementChild?.dataset;
+
+    const itemId = prev?.id || last?.id;
+
+    if (!itemId) return;
+    this.setCurrentItem(itemId);
+  },
+
+  // handlePlayer() {
+  //   // this.playButton = play;
+  // },
 
   audioUpdateHandler({ audio, duration }) {
     const progressBar = document.querySelector('.app__progress-level');
@@ -72,7 +97,6 @@ const AudioController = {
     this.state.current = current;
     this.renderCurrentItem(current);
 
-    this.handlePlayer();
     this.audioUpdateHandler(current);
   },
 
