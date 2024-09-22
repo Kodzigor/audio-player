@@ -5,7 +5,9 @@ const AudioController = {
   state: {
     audios: [],
     current: data[0],
+    playing: false,
   },
+
   intit() {
     this.initVariables();
     this.initEvents();
@@ -16,21 +18,37 @@ const AudioController = {
   initVariables() {
     this.audioList = document.querySelector('.app__tracks');
     this.audioList.innerHTML = '';
+    this.playButton = null;
   },
 
   initEvents() {
     this.audioList.addEventListener('click', this.handleCurrentItem.bind(this));
   },
 
+  handleAudioPlay() {
+    const { playing, current } = this.state;
+    const { audio } = current;
+
+    !playing ? audio.play() : audio.pause();
+
+    this.state.playing = !playing;
+    this.playButton.classList.toggle('playing', !playing);
+  },
+
+  handlePlayer() {
+    const play = document.querySelector('.app__play');
+    this.playButton = play;
+
+    play.addEventListener('click', this.handleAudioPlay.bind(this));
+  },
+
   audioUpdateHandler({ audio, duration }) {
     const progressBar = document.querySelector('.app__progress-level');
     const progress = document.querySelector('.app__progress-passed');
 
-    audio.play();
-
     audio.addEventListener('timeupdate', ({ target }) => {
       const { currentTime } = target;
-      progressBar.max = audio.duration;
+      progressBar.max = duration;
       progressBar.value = currentTime;
 
       progress.innerHTML = handleTime(currentTime);
@@ -54,6 +72,7 @@ const AudioController = {
     this.state.current = current;
     this.renderCurrentItem(current);
 
+    this.handlePlayer();
     this.audioUpdateHandler(current);
   },
 

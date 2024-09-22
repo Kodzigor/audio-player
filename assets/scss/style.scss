@@ -90,6 +90,36 @@
     gap: 10px;
   }
 
+  &__play {
+    width: 60px;
+    height: 60px;
+    & .app__icon-play {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    & .app__icon-pause {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    &.playing {
+      & .app__icon-play {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      & .app__icon-pause {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
   &__icon {
     width: 25px;
     height: 25px;
@@ -108,7 +138,6 @@
     &-big {
       width: 60px;
       height: 60px;
-      position: relative;
     }
   }
 

@@ -33,14 +33,14 @@
 
             <div class="volume">
 
-              <div class="volume__icon">
+              <button class="volume__icon">
                 <svg class="app__icon app__icon-small icon-volume ">
                   <use xlink:href="./assets/icons/sprite.svg#volume-low-solid"></use>
                 </svg>
                 <svg class="app__icon app__icon-small muted hidden">
                   <use xlink:href="./assets/icons/sprite.svg#volume-xmark-solid"></use>
                 </svg>
-              </div>
+              </button>
 
               <input class="volume__level" type="range" name="volume" id="volume" min="0" max="1" step="0.1" value="0.5">
 
@@ -48,7 +48,7 @@
             </div>
           </div>
 
-          <div class="app__buttons fixed">
+          <div class="app__buttons">
 
             <svg class="app__icon shuffle">
               <use xlink:href="./assets/icons/sprite.svg#shuffle-solid"></use>
@@ -60,12 +60,14 @@
             <!-- <svg class="app__icon app__icon-big play">
                           <use xlink:href="./assets/icons/sprite.svg#play-solid"></use>
                         </svg> -->
-            <svg class="app__icon app__icon-big play">
-              <use xlink:href="./assets/icons/sprite.svg#circle-play-solid"></use>
-            </svg>
-            <svg class="app__icon app__icon-big play hidden">
-              <use xlink:href="./assets/icons/sprite.svg#circle-pause-solid"></use>
-            </svg>
+            <div class="app__play">
+              <svg class="app__icon app__icon-big app__icon-play">
+                <use xlink:href="./assets/icons/sprite.svg#circle-play-solid"></use>
+              </svg>
+              <svg class="app__icon app__icon-big app__icon-pause">
+                <use xlink:href="./assets/icons/sprite.svg#circle-pause-solid"></use>
+              </svg>
+            </div>
             <!-- <svg class="app__icon app__icon-big stop ">
                           <use xlink:href="./assets/icons/sprite.svg#circle-stop-solid"></use>
                         </svg> -->
