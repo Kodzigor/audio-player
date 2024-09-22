@@ -4,15 +4,64 @@ import { handleTime } from './utils.js';
 const AudioController = {
   state: {
     audios: [],
+    current: data[0],
   },
   intit() {
     this.initVariables();
+    this.initEvents();
     this.renderAudios();
+    this.renderCurrentItem(this.state.current);
   },
 
   initVariables() {
     this.audioList = document.querySelector('.app__tracks');
     this.audioList.innerHTML = '';
+  },
+
+  initEvents() {
+    this.audioList.addEventListener('click', this.handleCurrentItem.bind(this));
+  },
+
+  audioUpdateHandler({ audio, duration }) {
+    const progressBar = document.querySelector('.app__progress-level');
+    const progress = document.querySelector('.app__progress-passed');
+
+    audio.play();
+
+    audio.addEventListener('timeupdate', ({ target }) => {
+      const { currentTime } = target;
+      progressBar.max = audio.duration;
+      progressBar.value = currentTime;
+
+      progress.innerHTML = handleTime(currentTime);
+    });
+  },
+
+  renderCurrentItem({ id, track, group, genre, link, duration }) {
+    const [image] = link.split('.');
+    const time = handleTime(duration);
+
+    document.querySelector('.song__title').innerHTML = track;
+    document.querySelector('.song__author').innerHTML = group;
+    document.querySelector('.app__progress-full').innerHTML = time;
+    document.querySelector('.app__image').setAttribute('src', `./assets/images/${image}.jpg`);
+  },
+
+  setCurrentItem(currentId) {
+    const current = this.state.audios.find(({ id }) => +id === +currentId);
+
+    if (!current) return;
+    this.state.current = current;
+    this.renderCurrentItem(current);
+
+    this.audioUpdateHandler(current);
+  },
+
+  handleCurrentItem({ target }) {
+    const id = target.closest('.app__track') ? target.closest('.app__track').dataset.id : null;
+    if (!id) return;
+
+    this.setCurrentItem(id);
   },
 
   renderItem({ id, track, group, genre, link, duration }) {
