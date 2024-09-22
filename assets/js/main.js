@@ -63,9 +63,6 @@ const AudioController = {
     this.setCurrentItem(itemId);
   },
 
-  // handlePlayer() {
-  //   // this.playButton = play;
-  // },
 
   audioUpdateHandler({ audio, duration }) {
     const progressBar = document.querySelector('.app__progress-level');
@@ -80,7 +77,7 @@ const AudioController = {
     });
   },
 
-  renderCurrentItem({ id, track, group, genre, link, duration }) {
+  renderCurrentItem({ track, group, link, duration }) {
     const [image] = link.split('.');
     const time = handleTime(duration);
 
@@ -90,14 +87,37 @@ const AudioController = {
     document.querySelector('.app__image').setAttribute('src', `./assets/images/${image}.jpg`);
   },
 
+  pauseAudio() {
+    const { current : { audio } } = this.state;
+
+    if(!audio) return;
+
+    audio.pause();
+    audio.currentTime = 0;
+  },
+
+  togglePlaying() {
+    const { playing, current } = this.state;
+    const { audio } = current;
+
+    playing ? audio.play() : audio.pause();
+    this.play.classList.toggle('playing', playing);
+
+  },
+
   setCurrentItem(currentId) {
     const current = this.state.audios.find(({ id }) => +id === +currentId);
+
+    this.pauseAudio()
 
     if (!current) return;
     this.state.current = current;
     this.renderCurrentItem(current);
 
     this.audioUpdateHandler(current);
+    setTimeout(() => {
+      this.togglePlaying()
+    }, 10)
   },
 
   handleCurrentItem({ target }) {
@@ -114,7 +134,7 @@ const AudioController = {
     return `
        <li class="app__track track" data-id="${id}">
 
-            <img class="track__image" src="./assets/images/${image}.jpg">
+            <img class="track__image" src="./assets/images/${image}.jpg" alt="image">
             <div class="track__heading">
               <span class="track__title">${track}</span>
               <span class="track__author">${group}</span>
