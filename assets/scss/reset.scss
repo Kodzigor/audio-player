@@ -111,7 +111,12 @@ body {
   line-height: 1;
   color: black;
   color: rgb(46, 50, 113);
+  width: 100vw;
+  height: 100vh;
   background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ol,
