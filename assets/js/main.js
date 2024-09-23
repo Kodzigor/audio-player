@@ -4,7 +4,7 @@ import { handleTime } from './utils.js';
 const AudioController = {
   state: {
     audios: [],
-    current: '',
+    current: data[0],
     playing: false,
   },
 
@@ -20,6 +20,7 @@ const AudioController = {
     this.play = document.querySelector('.app__play');
     this.next = document.querySelector('.next');
     this.prev = document.querySelector('.prev');
+    this.progressBar = document.querySelector('.app__progress-level');
   },
 
   initEvents() {
@@ -27,6 +28,7 @@ const AudioController = {
     this.play.addEventListener('click', this.handleAudioPlay.bind(this));
     this.next.addEventListener('click', this.handleNext.bind(this));
     this.prev.addEventListener('click', this.handlePrev.bind(this));
+    this.progressBar.addEventListener('input', this.progressBarHandler.bind(this));
   },
 
   handleAudioPlay() {
@@ -63,15 +65,21 @@ const AudioController = {
     this.setCurrentItem(itemId);
   },
 
+  progressBarHandler(e) {
+    const { current } = this.state;
+    const currentProgressValue = e.target.value;
+    this.progressBar.currentValue = currentProgressValue;
+    current.audio.currentTime = currentProgressValue;
+  },
 
   audioUpdateHandler({ audio, duration }) {
-    const progressBar = document.querySelector('.app__progress-level');
+    // const progressBar = document.querySelector('.app__progress-level');
     const progress = document.querySelector('.app__progress-passed');
 
     audio.addEventListener('timeupdate', ({ target }) => {
       const { currentTime } = target;
-      progressBar.max = duration;
-      progressBar.value = currentTime;
+      this.progressBar.max = duration;
+      this.progressBar.value = currentTime;
 
       progress.innerHTML = handleTime(currentTime);
     });
@@ -88,9 +96,11 @@ const AudioController = {
   },
 
   pauseAudio() {
-    const { current : { audio } } = this.state;
+    const {
+      current: { audio },
+    } = this.state;
 
-    if(!audio) return;
+    if (!audio) return;
 
     audio.pause();
     audio.currentTime = 0;
@@ -102,13 +112,12 @@ const AudioController = {
 
     playing ? audio.play() : audio.pause();
     this.play.classList.toggle('playing', playing);
-
   },
 
   setCurrentItem(currentId) {
     const current = this.state.audios.find(({ id }) => +id === +currentId);
 
-    this.pauseAudio()
+    this.pauseAudio();
 
     if (!current) return;
     this.state.current = current;
@@ -116,8 +125,8 @@ const AudioController = {
 
     this.audioUpdateHandler(current);
     setTimeout(() => {
-      this.togglePlaying()
-    }, 10)
+      this.togglePlaying();
+    }, 10);
   },
 
   handleCurrentItem({ target }) {

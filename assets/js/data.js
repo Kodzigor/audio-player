@@ -6,6 +6,7 @@ export const data = [
     track: 'Enemy',
     group: 'Imagine Dragons',
     year: 2019,
+    duration: 168.045708,
   },
   {
     id: 2,
