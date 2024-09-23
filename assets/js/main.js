@@ -21,6 +21,8 @@ const AudioController = {
     this.next = document.querySelector('.next');
     this.prev = document.querySelector('.prev');
     this.progressBar = document.querySelector('.app__progress-level');
+    this.volumeBar = document.querySelector('.volume__level');
+    this.volumeIcon = document.querySelector('.volume__icon');
   },
 
   initEvents() {
@@ -29,11 +31,14 @@ const AudioController = {
     this.next.addEventListener('click', this.handleNext.bind(this));
     this.prev.addEventListener('click', this.handlePrev.bind(this));
     this.progressBar.addEventListener('input', this.progressBarHandler.bind(this));
+    this.volumeBar.addEventListener('input', this.volumeHandler.bind(this));
+    this.volumeIcon.addEventListener('click', this.volumeMuteHandle.bind(this));
   },
 
   handleAudioPlay() {
     const { playing, current } = this.state;
     const { audio } = current;
+    console.log(playing, current);
 
     !playing ? audio.play() : audio.pause();
 
@@ -65,15 +70,47 @@ const AudioController = {
     this.setCurrentItem(itemId);
   },
 
-  progressBarHandler(e) {
-    const { current } = this.state;
-    const currentProgressValue = e.target.value;
+  volumeHandler({ target }) {
+    const {
+      current: { audio },
+    } = this.state;
+
+    const currentVolumeLevel = target.value;
+    this.volumeBar.value = currentVolumeLevel;
+    audio.volume = currentVolumeLevel;
+
+    if (audio.volume === 0) {
+      this.volumeIcon.classList.add('muted');
+    } else {
+      this.volumeIcon.classList.remove('muted');
+    }
+  },
+
+  volumeMuteHandle() {
+    const {
+      current: { audio },
+    } = this.state;
+    const currentVolumeLevel = this.volumeBar.value;
+
+    if (audio.volume !== 0) {
+      audio.volume = 0;
+      this.volumeIcon.classList.toggle('muted');
+    } else {
+      audio.volume = currentVolumeLevel;
+      this.volumeIcon.classList.toggle('muted');
+    }
+  },
+
+  progressBarHandler({ target }) {
+    const {
+      current: { audio },
+    } = this.state;
+    const currentProgressValue = target.value;
     this.progressBar.currentValue = currentProgressValue;
-    current.audio.currentTime = currentProgressValue;
+    audio.currentTime = currentProgressValue;
   },
 
   audioUpdateHandler({ audio, duration }) {
-    // const progressBar = document.querySelector('.app__progress-level');
     const progress = document.querySelector('.app__progress-passed');
 
     audio.addEventListener('timeupdate', ({ target }) => {

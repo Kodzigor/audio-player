@@ -68,8 +68,37 @@
       gap: 15px;
 
       &__icon {
+        width: 25px;
+        height: 25px;
+
         &:hover {
           .app__volume-level {
+            display: block;
+          }
+        }
+
+        &-volume {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+
+        &-mute {
+          width: 100%;
+          height: 100%;
+          display: none;
+        }
+
+        &.muted {
+          .volume__icon-volume {
+            width: 100%;
+            height: 100%;
+            display: none;
+          }
+
+          .volume__icon-mute {
+            width: 100%;
+            height: 100%;
             display: block;
           }
         }
